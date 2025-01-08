@@ -12,20 +12,23 @@
 
 // TODO: calculateStatistics 함수를 작성하세요.
 function calculateStatistics(users) {
-  // TODO
+  const result = users.reduce(
+    (acc, cur) => {
+      if (cur.age > acc.maxAge) acc.maxAge = cur.age;
 
-  return users.reduce(
-    (acc, cur, i) => {
-      if (cur > acc.maxAge) acc.maxAge = cur;
-
-      if (acc.length - 1 == i) {
-        acc.averageAge = (acc.maxAge + cur) / users.length;
-      }
+      acc.totalAge += cur.age;
 
       return acc;
     },
-    { averageAge: 0, maxAge: 0 }
+    { maxAge: 0, totalAge: 0 }
   );
+
+  result.averageAge = result.totalAge / users.length;
+
+  return {
+    averageAge: result.averageAge,
+    maxAge: result.maxAge,
+  };
 }
 const users = [{ age: 20 }, { age: 30 }, { age: 40 }, { age: 25 }, { age: 35 }];
 calculateStatistics(users);
