@@ -31,6 +31,13 @@
 
 function groupBy(arr, key) {
   // 여기에 코드를 작성하세요.
+  return arr.reduce((acc, cur) => {
+    if (!acc[cur[key]]) {
+      acc[cur[key]] = [];
+    }
+    acc[cur[key]].push(cur);
+    return acc;
+  }, {});
 }
 
 // export를 수정하지 마세요.
