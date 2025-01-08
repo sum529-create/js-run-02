@@ -27,7 +27,7 @@ const obj = {
 };
 
 // TODO : spread 연산자를 사용하여 obj 객체를 복사하고 newObj 객체를 만들어 원하는 부분만 수정하세요.
-const newObj = { ...obj, name: "수민", age: 29 };
+const newObj = { ...obj, age: 26 };
 
 //export를 수정하지 마세요.
 export { obj, newObj, array, newArray };
